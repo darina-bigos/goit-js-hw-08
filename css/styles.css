@@ -12,6 +12,18 @@ img {
 }
 
 .container {
-  max-width: 1158;
-  padding: 0 15px;
+  max-width: 1158px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.imgContainer-flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery-item {
+  width: calc((100% - 48px) / 3);
 }

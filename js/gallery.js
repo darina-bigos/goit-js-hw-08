@@ -1,9 +1,9 @@
-const { createElement } = require('react');
+// const { createElement } = require('react');
 
 const images = [
   {
     preview:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
+      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__340.jpg',
     original:
       'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
     description: 'Hokkaido Flower',
@@ -70,7 +70,11 @@ const imgContainer = document.querySelector('.gallery');
 
 imgContainer.classList.add('imgContainer-flex');
 
+console.log(imgContainer);
+
 const gallery = document.createDocumentFragment();
+
+imgContainer.addEventListener('click', handleClick);
 
 images.forEach(({ preview, original, description }) => {
   const li = document.createElement('li');
@@ -92,3 +96,21 @@ images.forEach(({ preview, original, description }) => {
 });
 
 imgContainer.appendChild(gallery);
+
+function handleClick(event) {
+  event.preventDefault();
+  const target = event.target;
+
+  if (target.nodeName !== 'IMG') {
+    return;
+  }
+  const source = target.dataset.source;
+  const alt = target.alt;
+
+  const instance = basicLightbox.create(`
+        <div class="modal">
+        <img src="${source}" alt="${alt}"/>
+        </div>
+    `);
+  instance.show();
+}
