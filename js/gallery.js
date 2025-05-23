@@ -114,3 +114,10 @@ function handleClick(event) {
     `);
   instance.show();
 }
+
+// imgContainer.style.display = 'flex';
+// imgContainer.style.justifyContent = 'center';
+// imgContainer.style.flexWrap = 'wrap';
+// imgContainer.style.gap = '24px';
+
+// li.style.width = 'calc((100% - 48px) / 3)';
